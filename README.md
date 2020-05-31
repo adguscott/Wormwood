@@ -1,8 +1,6 @@
-# Wormwood
-
-**Work In Progress**
-
+# Wormwood File Locker - Work In Progress
 _Technologies used: WPF, MVVM, Stylet, System.Security.Cryptography_
+
 Encryption File Locker: Encrypt/Decrypt and store files using a password.
 Features: Password based encryption/decryption. Basic file manager with categories, deletion and search function.
 
