@@ -9,7 +9,7 @@ _Technologies used: WPF, MVVM, Stylet, System.Security.Cryptography_
 
 ## TODO:
 * Add password input via UI. (Currently hardcoded)
-* Open Function: Temporarily decrypt and open a file.
+* ~Open Function: Temporarily decrypt and open a file.~ Completed
 * Explore Cryptography further, implement Rfc2898DeriveBytes for assword-based key derivation.
 * Implement better error checking.
 
