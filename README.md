@@ -6,6 +6,7 @@ Features: Password based encryption/decryption. Basic file manager with categori
 
 ## TODO:
 * Add password input via UI. (Currently hardcoded)
+* Open Function: Temporarily decrypt and open a file.
 * Explore Cryptography further, implement Rfc2898DeriveBytes for assword-based key derivation.
 * Implement better error checking.
 
