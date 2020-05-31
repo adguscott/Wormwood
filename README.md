@@ -11,4 +11,4 @@ Features: Password based encryption/decryption. Basic file manager with categori
 
 ![](https://i.imgur.com/6xJbSqt.png)
 ![](https://i.imgur.com/pQwzb68.png)
-![](https://i.imgur.com/6xJbSqt.png)
+![](https://i.imgur.com/Uon9UxT.png)
