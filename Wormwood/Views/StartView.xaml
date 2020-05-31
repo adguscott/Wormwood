@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="Wormwood.Views.StartView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:s="https://github.com/canton7/Stylet"
+        xmlns:local="clr-namespace:Wormwood.Views"
+        mc:Ignorable="d"
+        Height="350" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+            <Image Source="pack://application:,,,/Images/lock.png" Stretch="None"/>
+            <Label FontSize="16" FontWeight="Bold" Content="Wormwood: File Locker" HorizontalAlignment="Center"/>
+            <Label>Encrypt a file:</Label>
+            <Button Margin="10" Width="200" Height="25" Command="{s:Action OpenEncrypt}" Content="Encrypt"/>
+            <Label>Open File Locker</Label>
+            <Button Margin="10" Width="200" Height="25" Command="{s:Action OpenLocker}" Content="Open Locker"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

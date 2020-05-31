@@ -1,0 +1,11 @@
+﻿<Window x:Class="Wormwood.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wormwood.Views"
+        mc:Ignorable="d"
+        xmlns:s="https://github.com/canton7/Stylet"
+        Title="Wormwood: File Locker" Height="460" Width="800" WindowStartupLocation="CenterScreen">
+    <ContentControl s:View.Model="{Binding ActiveItem}"/>
+</Window>

@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="Wormwood.Views.LockerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:s="https://github.com/canton7/Stylet"
+        xmlns:local="clr-namespace:Wormwood.Views"
+        mc:Ignorable="d"
+        Height="460" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+            <Grid Width="760">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="0 5 5 5" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <TextBox Height="25" Width="140" TextChanged="{s:Action Filter}" Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label VerticalAlignment="Center">🔍</Label>
+                </StackPanel>
+                <ListBox Grid.Row="1" Grid.Column="0" Margin="0" Height="300" SelectionChanged="{s:Action ChangeCategory}" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory, UpdateSourceTrigger=PropertyChanged}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="3" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="38"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Column="0" Grid.Row="0">
+                                    <Image Source="pack://application:,,,/Images/categoryfolder.png" Stretch="None"/>
+                                    <Label FontSize="11" FontWeight="Bold" Margin="0 6 0 0" Foreground="White" Content="{Binding FileCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                                <Label Grid.Column="1" Margin="0 6 0 0" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Grid.Column="0" Grid.Row="3" Content="Delete Category" Width="100" Height="25" Click="{s:Action DeleteDirectory}"/>
+                <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" VerticalAlignment="Center">Files</Label>
+                <ListBox Margin="0" Grid.Column="1" Grid.Row="1" Height="300" Width="500" ItemsSource="{Binding Files, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedFile, UpdateSourceTrigger=PropertyChanged}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Border Margin="3" BorderBrush="#e07b39" BorderThickness="1" Height="40" Width="40">
+                                        <Rectangle Fill="#edb879"/>
+                                    </Border>
+                                    <Label Foreground="White" Content="{Binding Extension, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                                <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Width="100" Height="25" Margin="10">Open</Button>
+                    <Button Width="100" Height="25" Margin="10" Command="{s:Action Decrypt}">Decrypt</Button>
+                    <Button Width="100" Height="25" Margin="10" Command="{s:Action Delete}">Delete</Button>
+                    <Button Width="100" Height="25" Margin="10" Command="{s:Action Close}">Back</Button>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>
